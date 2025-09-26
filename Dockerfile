@@ -1,11 +1,11 @@
-FROM golang:1.17 AS build
+FROM golang:bookworm AS build
 
 ARG SM_VERSION
 ENV DEBIAN_FRONTEND noninteractive
 ENV BUILD_DIR ${GOPATH}/src/github.com/JustaPenguin/assetto-server-manager
 ENV GO111MODULE on
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash -
 RUN apt-get update && apt-get install -y build-essential libssl-dev curl nodejs tofrodos dos2unix zip
 
 ADD . ${BUILD_DIR}

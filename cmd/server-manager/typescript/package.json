@@ -28,7 +28,7 @@
     "@types/node": "^11.15.4",
     "@types/summernote": "^0.8.1",
     "bootstrap": "4.3.1",
-    "bootstrap-switch": "3.3.4",
+    "bootstrap-switch": "3.4.0",
     "bootswatch": "^4.4.1",
     "dagre": "^0.8.5",
     "dragula": "^3.7.2",
