@@ -1,0 +1,47 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("jquery");
+require("bootstrap");
+require("bootstrap-switch");
+require("summernote/dist/summernote-bs4");
+require("multiselect");
+require("moment");
+require("moment-timezone");
+const manager_1 = require("./javascript/manager");
+require("./Font");
+require("./Calendar");
+const RaceControl_1 = require("./RaceControl");
+const CarDetail_1 = require("./CarDetail");
+const TrackDetail_1 = require("./TrackDetail");
+const CarSearch_1 = require("./CarSearch");
+const CarList_1 = require("./CarList");
+const RaceWeekend_1 = require("./RaceWeekend");
+const ChangelogPopup_1 = require("./ChangelogPopup");
+const HostedIntroPopup_1 = require("./HostedIntroPopup");
+const Messages_1 = require("./Messages");
+const Championship_1 = require("./Championship");
+const Results_1 = require("./Results");
+const RaceList_1 = require("./RaceList");
+const SpectatorCar_1 = require("./SpectatorCar");
+const Form_1 = require("./Form");
+$(() => {
+    new Form_1.Form();
+    (0, manager_1.EntryPoint)();
+    new RaceControl_1.RaceControl();
+    new CarDetail_1.CarDetail();
+    new TrackDetail_1.TrackDetail();
+    new CarList_1.CarList();
+    new RaceWeekend_1.RaceWeekend.View();
+    new RaceWeekend_1.RaceWeekend.EditSession();
+    new ChangelogPopup_1.ChangelogPopup();
+    new HostedIntroPopup_1.HostedIntroPopup();
+    Messages_1.Messages.initSummerNote();
+    new Championship_1.Championship.View();
+    new Results_1.Results();
+    new RaceList_1.RaceList();
+    new SpectatorCar_1.SpectatorCar();
+    $(".race-setup").each(function (index, elem) {
+        new CarSearch_1.CarSearch($(elem));
+    });
+});
+//# sourceMappingURL=main.js.map

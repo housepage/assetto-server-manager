@@ -8,6 +8,7 @@ ENV GO111MODULE on
 RUN curl -sL https://deb.nodesource.com/setup_22.x | bash -
 RUN apt-get update && apt-get install -y build-essential libssl-dev curl nodejs tofrodos dos2unix zip python3
 RUN npm install -g npm@latest
+RUN go install github.com/akavel/rsrc@latest
 
 ADD . ${BUILD_DIR}
 WORKDIR ${BUILD_DIR}
