@@ -1,12 +1,14 @@
-FROM golang:1.15 AS build
+FROM golang:bookworm AS build
 
 ARG SM_VERSION
 ENV DEBIAN_FRONTEND noninteractive
 ENV BUILD_DIR ${GOPATH}/src/github.com/JustaPenguin/assetto-server-manager
 ENV GO111MODULE on
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
-RUN apt-get update && apt-get install -y build-essential libssl-dev curl nodejs tofrodos dos2unix zip
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash -
+RUN apt-get update && apt-get install -y build-essential libssl-dev curl nodejs tofrodos dos2unix zip python3
+RUN npm install -g npm@latest
+RUN go install github.com/akavel/rsrc@latest
 
 ADD . ${BUILD_DIR}
 WORKDIR ${BUILD_DIR}
